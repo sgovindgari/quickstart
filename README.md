@@ -1,21 +1,29 @@
-# Plaid quickstart
+### plaid-python quickstart
 
-This repository accompanies Plaid's [**quickstart guide**][quickstart].
+[Quickstart guide](https://plaid.com/docs/quickstart)
 
-Here you'll find full example integration apps using our [**client libraries**][libraries]:
+``` bash
+git clone https://github.com/plaid/quickstart.git
+cd quickstart/python
 
-- [Go][go-example]
-- [Node][node-example]
-- [Ruby][ruby-example]
-- [Python][python-example]
-- [Java][java-example]
+# If you use virtualenv
+# virtualenv venv
+# source venv/bin/activate
 
-![Plaid quickstart app](/assets/quickstart-screenshot.png)
+pip install -r requirements.txt
 
-[quickstart]: https://plaid.com/docs/quickstart
-[libraries]: https://plaid.com/docs/libraries
-[node-example]: /node
-[ruby-example]: /ruby
-[python-example]: /python
-[java-example]: /java
-[go-example]: /go
+# Start the Quickstart with your API keys from the Dashboard
+# https://dashboard.plaid.com/account/keys
+#
+# PLAID_PRODUCTS is a comma-separated list of products to use when initializing
+# Link. Note that this list must contain 'assets' in order for the app to be
+# able to create and retrieve asset reports.
+PLAID_CLIENT_ID='CLIENT_ID' \
+PLAID_SECRET='SECRET' \
+PLAID_PUBLIC_KEY='PUBLIC_KEY' \
+PLAID_ENV='sandbox' \
+PLAID_PRODUCTS='transactions' \
+PLAID_COUNTRY_CODES='US,CA,GB,FR,ES' \
+python server.py
+# Go to http://localhost:5000
+```
