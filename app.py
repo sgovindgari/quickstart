@@ -190,6 +190,16 @@ def get_investment_transactions():
   pretty_print_response(investment_transactions_response)
   return jsonify({'error': None, 'investment_transactions': investment_transactions_response})
 
+@app.route('/liabilities', methods=['GET'])
+def get_liabilities():
+  try:
+    liabilities = client.Liabilities.get(access_token)
+  except plaid.errors.PlaidError as e:
+    return jsonify({'error': {'display_message': e.display_message, 'error_code': e.code, 'error_type': e.type } })
+  pretty_print_response(holdings_response)
+  return jsonify({'error': None, 'liabilities': liabilities})
+
+
 # Retrieve high-level information about an Item
 # https://plaid.com/docs/#retrieve-item
 @app.route('/item', methods=['GET'])
