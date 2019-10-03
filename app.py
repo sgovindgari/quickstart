@@ -196,7 +196,7 @@ def get_liabilities():
     liabilities = client.Liabilities.get(access_token)
   except plaid.errors.PlaidError as e:
     return jsonify({'error': {'display_message': e.display_message, 'error_code': e.code, 'error_type': e.type } })
-  pretty_print_response(holdings_response)
+  pretty_print_response(liabilities)
   return jsonify({'error': None, 'liabilities': liabilities})
 
 
