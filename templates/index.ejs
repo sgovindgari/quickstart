@@ -465,7 +465,7 @@
           liabilitiesData = data.liabilities.liabilities;
           creditCardData = liabilitiesData.credit;
           studentLoanData = liabilitiesData.student;
-          var html = '<div><tr class="response-row response-row--is-liabilities"></tr><td><strong>Last Payment Amount</strong></td><td><strong>Last Statement Balance</strong></td><td><strong>Min Payment Amount</strong></td><tr class="response-row response-row--is-liabilities">';
+          var html = '<div>Credit Card Debt</div><tr class="response-row response-row--is-liabilities"></tr><td><strong>Last Payment Amount</strong></td><td><strong>Last Statement Balance</strong></td><td><strong>Min Payment Amount</strong></td><tr class="response-row response-row--is-liabilities">';
           creditCardData.forEach(function(liability, idx) {
             html += '<tr>';
             html += '<td>' + liability.last_payment_amount + '</td>';
@@ -473,11 +473,12 @@
             html += '<td>' + liability.minimum_payment_amount + '</td>';
             html += '</tr>';
           });
+          html += '<div>Student Loans</div>'
           html += '<tr class="response-row response-row--is-liabilities"></tr><td><strong>Last Payment Amount</strong></td><td><strong>Interest Rate Percentage</strong></td><td><strong>Min Payment Amount</strong></td><tr class="response-row response-row--is-liabilities">';
           studentLoanData.forEach(function(liability, idx) {
             html += '<tr>';
             html += '<td>' + liability.last_payment_amount + '</td>';
-            html += '<td>$' + liability.interest_rate_percentage + '</td>';
+            html += '<td>' + liability.interest_rate_percentage + '%</td>';
             html += '<td>' + liability.minimum_payment_amount + '</td>';
             html += '</tr>';
           });
